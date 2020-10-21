@@ -67,6 +67,17 @@ Every model has to inherit from the class BaseModel. This allows that every
 model has the fields `created_at` and `updated_at` and methods like `to_json`
 and `to_dict`.
 
+#### update
+
+  def update(self, skip_save=False, **kwargs):
+
+  Set the attributes passed on kwargs on the object and store them
+  in the database
+  highly recommended when you need to save just one field
+
+  if skip_save=True is passed, then the save method will be skipped
+  (this can be useful when you want to avoid signals sent on save)
+
 ### OrderableModel
 
 This model inherits from BaseModel. It adds the `display_order` field to allow
